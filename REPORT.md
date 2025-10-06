@@ -81,6 +81,6 @@ Objects for entities like Player make it easy to expand (add enemies, power-ups,
 
 ---
 
-### 💡 Summary
+### Summary
 This project demonstrates a full MVC-based 2D platformer with real physics, level progression, and persistence.  
 It shows practical application of OOP, Swing graphics, and JSON data handling in a well-structured Java project.
