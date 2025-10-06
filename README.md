@@ -35,4 +35,30 @@
 
 - Level Switching: “Next Level” button on win screen loads the next map.
 
+- JSON Save/Load: Persistent player stats and progress (Gson).
+
+- Multiple Levels: DemoLevels class handles nextLevel and byIndex for loading different maps.
+
+- Instruction HUD: Displays live control guide and score goals.
+
+- UI Polishing: Centered restart message, right-aligned help box, and background visuals.
+
+## Controls
+
+- A / D or ← / → – Move left / right
+
+- W / ↑ / Space – Jump
+
+- R – Restart current level
+
+- S – Save progress
+
+- L – Load saved progress
+
+## Known Issues
+Save may be not really clear.
+
+## External Libraries
+Gson 2.10.1 – JSON serialization for Save/Load
+JUnit 4.13.2 – Unit testing (extra credit)
   
