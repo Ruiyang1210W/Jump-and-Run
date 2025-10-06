@@ -7,10 +7,10 @@
 ## How to Run
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/platformer-game.git/
-2. Open the project in IntelliJ IDEA (or Eclipse)./
-3. Ensure the Project SDK is Java 17 or later./
-4. Run the main file: src/main/java/Main.java/
+   git clone https://github.com/yourusername/platformer-game.git
+2. Open the project in IntelliJ IDEA (or Eclipse).
+3. Ensure the Project SDK is Java 17 or later.
+4. Run the main file: src/main/java/Main.java
 
 
 ## Features Implemented
