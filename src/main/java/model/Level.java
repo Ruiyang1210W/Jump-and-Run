@@ -25,6 +25,25 @@ public class Level {
         return Tile.fromCode(tiles[ty][tx]);
     }
 
+    public Tile getCurrentTile(Rect r){
+        int left = (int)Math.ceil(r.x / Constants.TILE_SIZE);
+        int right = (int)Math.ceil((r.x + r.w) / Constants.TILE_SIZE);
+        int top = (int)Math.floor(r.y / Constants.TILE_SIZE);
+        int bottom = (int)Math.ceil((r.y + r.h) / Constants.TILE_SIZE);
+
+        for (int ty = top; ty <= bottom; ty++){
+            for (int tx = left-1; tx < right; tx++){
+                Tile current = getTileAt(tx, ty);
+                if (current != Tile.EMPTY){
+                    if(current != Tile.SOLID){
+                        return getTileAt(tx, ty);
+                    }
+                }
+            }
+        }
+        return Tile.EMPTY;
+    }
+
 
     public boolean rectHitsSolid(Rect r){
         int left = (int)Math.floor(r.x / Constants.TILE_SIZE);

@@ -4,7 +4,10 @@ public enum Tile {
     EMPTY(0,false,false),
     SOLID(1,true,false),
     SPIKE(2,false,true),
-    GOAL(3,false,false);
+    GOAL(3,false,false),
+    WEB(4,false, false),
+    SPEED_BOOST(5, true,false),
+    JUMP_BOOST(6,true,false);
 
 
     public final int code; public final boolean solid; public final boolean hazard;

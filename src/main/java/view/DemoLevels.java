@@ -35,6 +35,14 @@ public class DemoLevels {
         L.tiles[h - 2][18] = Tile.SPIKE.code;
         L.tiles[h - 2][19] = Tile.SPIKE.code;
 
+        //Boost test
+        L.tiles[h - 8][9] = Tile.SPEED_BOOST.code;
+        L.tiles[h - 8][10] = Tile.SPEED_BOOST.code;
+
+        L.tiles[h - 3][1] = Tile.WEB.code;
+
+        L.tiles[h - 2][8] = Tile.JUMP_BOOST.code;
+
         // Goal
         L.tiles[6][48] = Tile.GOAL.code;
 

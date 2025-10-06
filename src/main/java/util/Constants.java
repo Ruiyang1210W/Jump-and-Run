@@ -14,8 +14,14 @@ public final class Constants {
     public static final double GRAVITY = 1800; // px/s^2
     public static final double MOVE_ACCEL = 8000; // px/s^2
     public static final double MOVE_DECEL = 7000; // px/s^2
-    public static final double MAX_RUN_SPEED = 260; // px/s
+    public static final double MAX_RUN_SPEED = 500; // px/s
+    public static final double MAX_RUN_SPEED_BOOSTED = 850; // px/s
     public static final double JUMP_VELOCITY = -900; // px/s (negative is up)
+    public static final double MOVE_ACCEL_BOOSTED = 20000;
+    public static final double JUMP_VELOCITY_BOOSTED = -1200;
+    public static final double WEB_VELOCITY_JUMP = -100;
+    public static final double WEB_MAX_VELOCITY = 120;
+    public static final double OVERSPEED_DECEL = 140;
 
 
     // QoL
