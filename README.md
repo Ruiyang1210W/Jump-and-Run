@@ -2,7 +2,7 @@
 
 ## Team Members
 - Ruiyang Wang (016087383)
-- [Partner Name, if applicable]
+- Colin Shiung (017426461)
 
 ## How to Run
 1. Clone this repository:
