@@ -41,7 +41,7 @@
 
 - Instruction HUD: Displays live control guide and score goals.
 
-- UI Polishing: Centered restart message, right-aligned help box, and background visuals.
+- UI: Centered restart message, right-aligned help box, and background visuals (May add soon).
 
 ## Controls
 
