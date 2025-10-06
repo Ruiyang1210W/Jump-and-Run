@@ -25,7 +25,7 @@ public class GameState extends ObservableModel{
     }
 
     public void reset() {
-        player.pos.set(64, 64);
+        player.pos.set(96, 128);
         player.vel.set(0, 0);
 
         // clear any input so it don't drift on restart

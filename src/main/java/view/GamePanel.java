@@ -66,14 +66,17 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
                 int y = ty*Constants.TILE_SIZE - oy;
                 //determine color of tiles and shape/size
                 switch (t){
-                    case SOLID -> { g2.setColor(new Color(60,60,60)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE); }
+                    case SOLID -> { g2.setColor(new Color(34, 139, 34)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE/2); g2.setColor(new Color(107,84,40)); g2.fillRect(x,y+Constants.TILE_SIZE/2,Constants.TILE_SIZE,Constants.TILE_SIZE/2); }
                     case SPIKE -> { g2.setColor(Color.RED); g2.fillPolygon(new int[]{x,x+Constants.TILE_SIZE/2,x+Constants.TILE_SIZE}, new int[]{y+Constants.TILE_SIZE,y,y+Constants.TILE_SIZE}, 3); }
                     case GOAL -> { g2.setColor(Color.YELLOW); g2.fillRect(x+8, y+8, Constants.TILE_SIZE-16, Constants.TILE_SIZE-16); }
                     case SPEED_BOOST -> {g2.setColor(Color.BLUE); g2.fillRect(x, y, Constants.TILE_SIZE, Constants.TILE_SIZE);}
                     case JUMP_BOOST -> { g2.setColor(Color.GREEN); g2.fillRect(x, y, Constants.TILE_SIZE, Constants.TILE_SIZE);}
                     case WEB -> { g2.setColor(Color.WHITE); g2.fillRect(x, y, Constants.TILE_SIZE+4, Constants.TILE_SIZE); }
+                    case WOOD -> { g2.setColor(new Color(150, 111, 51)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE);}
+                    case LEAF -> { g2.setColor(new Color(109,179,63)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE);}
                     default -> {}
                 }
+                g2.drawString( ty + " " + tx, x ,y);
             }
         }
     }

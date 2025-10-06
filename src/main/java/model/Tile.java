@@ -7,7 +7,9 @@ public enum Tile {
     GOAL(3,false,false),
     WEB(4,false, false),
     SPEED_BOOST(5, true,false),
-    JUMP_BOOST(6,true,false);
+    JUMP_BOOST(6,true,false),
+    WOOD(7,true,false),
+    LEAF(8,false,false);
 
 
     public final int code; public final boolean solid; public final boolean hazard;
