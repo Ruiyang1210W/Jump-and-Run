@@ -105,7 +105,7 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
                     }
                     default -> {}
                 }
-//                g2.drawString( ty + " " + tx, x ,y);
+                g2.drawString( ty + " " + tx, x ,y);
             }
         }
     }

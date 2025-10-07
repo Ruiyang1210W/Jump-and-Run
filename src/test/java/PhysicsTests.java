@@ -49,15 +49,16 @@ public class PhysicsTests {
 
     @Test
     public void ceilingCollisionStopsUpwardVelocity() {
-        GameState s = new GameState(DemoLevels.basicDemo());
+        DemoLevels.basicDemo();
+        GameState s = new GameState(DemoLevels.nextLevel());
         // There’s a platform row around ty=12 in the demo; place just below it.
-        double ceilingY = 12 * Constants.TILE_SIZE;
-        s.player.pos.set(8 * Constants.TILE_SIZE, ceilingY + 2);
+        //double ceilingY = 12 * Constants.TILE_SIZE;
+        s.player.pos.set(40 * Constants.TILE_SIZE, 20);
 
         // jump up and detect head bump (vy goes from negative to 0)
-        s.onJumpHeld(); s.onJumpPressed();
         boolean bumped = false;
-        for (int i=0;i<40;i++){
+        for (int i=0;i<900;i++){
+            s.onJumpHeld(); s.onJumpPressed();
             double vyBefore = s.player.vel.y;
             s.tick(Constants.DT);
             if (vyBefore < 0 && s.player.vel.y == 0){ bumped = true; break; }

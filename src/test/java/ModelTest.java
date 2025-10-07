@@ -17,6 +17,8 @@ public class ModelTest {
 
     @Test public void testCoyoteAndBufferEnableEdgeJump(){
         GameState s = new GameState(DemoLevels.basicDemo());
+        DemoLevels.nextLevel();
+        s = new GameState(DemoLevels.nextLevel());
 // drop near ground and simulate just-walk-off then buffered jump
         for (int i=0;i<10;i++) s.tick(Constants.DT);
         s.setMoveInput(1);
