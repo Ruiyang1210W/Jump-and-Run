@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
     private final BufferedImage dirt = ImageLoader.load("/assets/sprites/Dirt.png");
     private final BufferedImage leaf = ImageLoader.load("/assets/sprites/Leaf.png");
     private final BufferedImage wood = ImageLoader.load("/assets/sprites/Wood.png");
+    private final BufferedImage background = ImageLoader.load("/assets/sprites/Background.png");
 
     public GamePanel(GameState model){
         this.model = model; this.hud = new HUD(model);
@@ -57,7 +58,7 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
+        g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
 
         // camera offset
         int ox = (int)Math.floor(model.camX);
