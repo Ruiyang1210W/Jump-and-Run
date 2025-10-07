@@ -11,6 +11,7 @@
 2. Open the project in IntelliJ IDEA (or Eclipse).
 3. Ensure the Project SDK is Java 17 or later.
 4. Run the main file: src/main/java/Main.java
+5. Mark src/main/resources as a resources root if it won't show assets. 
 
 
 ## Features Implemented
@@ -59,6 +60,6 @@
 Save may be not really clear.
 
 ## External Libraries
-Gson 2.10.1 – JSON serialization for Save/Load
-JUnit 4.13.2 – Unit testing (extra credit)
+- Gson 2.10.1 – JSON serialization for Save/Load
+- JUnit 4.13.2 – Unit testing (extra credit)
   

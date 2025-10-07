@@ -3,15 +3,19 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-
 import model.*;
 import util.Constants;
+
+import java.awt.image.BufferedImage;
+import util.ImageLoader;
 
 
 public class GamePanel extends JPanel implements java.beans.PropertyChangeListener {
     private final GameState model;
     private final HUD hud;
     private boolean finalShown = false;
+    private final BufferedImage playerSheet =
+            ImageLoader.load("/assets/sprites/player_sheet.png");
 
     public GamePanel(GameState model){
         this.model = model; this.hud = new HUD(model);
@@ -47,7 +51,7 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 
-// camera offset
+        // camera offset
         int ox = (int)Math.floor(model.camX);
         int oy = (int)Math.floor(model.camY);
 
@@ -83,12 +87,45 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
 
 
     private void drawPlayer(Graphics2D g2, Player p, int ox, int oy){
-        int x = (int)Math.round(p.pos.x - ox);
-        int y = (int)Math.round(p.pos.y - oy);
-        g2.setColor(new Color(40, 80, 200));
-        g2.fillRoundRect(x, y, (int)p.w, (int)p.h, 6, 6);
-        // simple shadow
-        g2.setColor(new Color(0,0,0,50));
-        g2.fillOval(x-4, y+(int)p.h-4, (int)p.w+8, 8);
+        int sx = (int) Math.round(p.pos.x - ox);
+        int sy = (int) Math.round(p.pos.y - oy);
+
+        double scale = 1.5;
+        int dw = (int) Math.round(p.frameW * scale);
+        int dh = (int) Math.round(p.frameH * scale);
+
+        if (playerSheet != null) {
+            // Pick current frame from player's animation state
+            int frame = p.currentFrame();     // added in Player.java
+            int fw = p.frameW;                // 32
+            int fh = p.frameH;                // 32
+            int cols = p.cols;                // 2
+
+            int srcX1 = (frame % cols) * fw;
+            int srcY1 = (frame / cols) * fh;
+            int srcX2 = srcX1 + fw;
+            int srcY2 = srcY1 + fh;
+
+            // face direction by mirroring when moving left
+            boolean facingLeft = p.vel.x < -1;
+            int dx1 = facingLeft ? sx + dw : sx;
+            int dx2 = facingLeft ? sx : sx + dw;
+
+            g2.drawImage(playerSheet,
+                    dx1, sy, dx2, sy + dh,   // destination rectangle
+                    srcX1, srcY1, srcX2, srcY2, // source frame rectangle
+                    null);
+
+            // soft shadow (optional)
+            g2.setColor(new Color(0,0,0,50));
+            g2.fillOval(sx - 4, sy + dh - 4, dw + 8, 8);
+        } else {
+            // Just in case: old rectangle if image missing
+            g2.setColor(new Color(40, 80, 200));
+            g2.fillRoundRect(sx, sy, dw, dh, 6, 6);
+            g2.setColor(new Color(0,0,0,50));
+            g2.fillOval(sx - 4, sy + dh - 4, dw + 8, 8);
+        }
     }
+
 }

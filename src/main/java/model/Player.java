@@ -8,6 +8,19 @@ public class Player {
     public Vec2 vel = new Vec2(); // px/s
     public double w = 24, h = 32; // hitbox
 
+    // ---- sprite animation (2x2 sheet, 4 frames, 32x32 each) ----
+    public int frameW = 32, frameH = 32;
+    public int frames = 4;
+    public int cols = 2;            // frames per row in the sheet
+    public double animFps = 8.0;    // animation speed
+    public double animTime = 0;     // accumulates elapsed time
+
+    public int currentFrame() {
+        int f = (int) Math.floor(animTime * animFps);
+        return Math.floorMod(f, Math.max(1, frames));
+    }
+
+
 
     // state
     public boolean onGround = false;
@@ -32,6 +45,8 @@ public class Player {
 
     public void tick(Level level, double dt, double moveInput) {
         movementCheck(level, dt, moveInput);
+        // advance walk animation only when moving horizontally
+        if (Math.abs(vel.x) > 1) animTime += dt;
     }
 
 
