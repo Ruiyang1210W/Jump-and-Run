@@ -57,10 +57,10 @@ public class HUD {
 
         // Your instruction lines (edit text anytime)
         String[] lines = {
-                "Reach 5000 to pass the level",
-                "Finish faster = higher bonus",
-                "Yellow tile gives score",
-                "S: Save   L: Load   R: Restart"
+                "Reach 5000 points to pass the level",
+                "Finish faster = higher bonus     ",
+                "Return to the nest for points     ",
+                "S: Save   L: Load   R: Restart     "
         };
 
         // Sizing/positioning

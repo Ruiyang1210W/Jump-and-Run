@@ -131,18 +131,6 @@ public class Player {
         }
     }
 
-    private void speedBoost(){
-
-    }
-
-    private void slowDown(){
-
-    }
-
-    private void jumpBoost(){
-
-    }
-
 
     private void moveX(Level level, double dx) {
         pos.x += dx;

@@ -16,6 +16,14 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
     private boolean finalShown = false;
     private final BufferedImage playerSheet =
             ImageLoader.load("/assets/sprites/player_sheet.png");
+    private final BufferedImage web = ImageLoader.load("/assets/sprites/Web.png");
+    private final BufferedImage wind = ImageLoader.load("/assets/sprites/Wind.png");
+    private final BufferedImage feather = ImageLoader.load("/assets/sprites/Feather.png");
+    private final BufferedImage nest = ImageLoader.load("/assets/sprites/Nest.png");
+    private final BufferedImage spike = ImageLoader.load("/assets/sprites/Spike.png");
+    private final BufferedImage dirt = ImageLoader.load("/assets/sprites/Dirt.png");
+    private final BufferedImage leaf = ImageLoader.load("/assets/sprites/Leaf.png");
+    private final BufferedImage wood = ImageLoader.load("/assets/sprites/Wood.png");
 
     public GamePanel(GameState model){
         this.model = model; this.hud = new HUD(model);
@@ -70,25 +78,41 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
                 int y = ty*Constants.TILE_SIZE - oy;
                 //determine color of tiles and shape/size
                 switch (t){
-                    case SOLID -> { g2.setColor(new Color(34, 139, 34)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE/2); g2.setColor(new Color(107,84,40)); g2.fillRect(x,y+Constants.TILE_SIZE/2,Constants.TILE_SIZE,Constants.TILE_SIZE/2); }
-                    case SPIKE -> { g2.setColor(Color.RED); g2.fillPolygon(new int[]{x,x+Constants.TILE_SIZE/2,x+Constants.TILE_SIZE}, new int[]{y+Constants.TILE_SIZE,y,y+Constants.TILE_SIZE}, 3); }
-                    case GOAL -> { g2.setColor(Color.YELLOW); g2.fillRect(x+8, y+8, Constants.TILE_SIZE-16, Constants.TILE_SIZE-16); }
-                    case SPEED_BOOST -> {g2.setColor(Color.BLUE); g2.fillRect(x, y, Constants.TILE_SIZE, Constants.TILE_SIZE);}
-                    case JUMP_BOOST -> { g2.setColor(Color.GREEN); g2.fillRect(x, y, Constants.TILE_SIZE, Constants.TILE_SIZE);}
-                    case WEB -> { g2.setColor(Color.WHITE); g2.fillRect(x, y, Constants.TILE_SIZE+4, Constants.TILE_SIZE); }
-                    case WOOD -> { g2.setColor(new Color(150, 111, 51)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE);}
-                    case LEAF -> { g2.setColor(new Color(109,179,63)); g2.fillRect(x,y,Constants.TILE_SIZE,Constants.TILE_SIZE);}
+                    case SOLID -> {
+                        g2.drawImage(dirt, x, y, null);
+                    }
+                    case SPIKE -> {
+                        g2.drawImage(spike, x, y, null);
+                    }
+                    case GOAL -> {
+                        g2.drawImage(nest, x, y, null);
+                    }
+                    case SPEED_BOOST -> {
+                        g2.drawImage(wind, x, y, null);
+                    }
+                    case JUMP_BOOST -> {
+                        g2.drawImage(feather, x, y, null);
+                    }
+                    case WEB -> {
+                        g2.drawImage(web,x,y, null);
+                    }
+                    case WOOD -> {
+                        g2.drawImage(wood, x, y, null);
+                    }
+                    case LEAF -> {
+                        g2.drawImage(leaf, x, y, null);
+                    }
                     default -> {}
                 }
-                g2.drawString( ty + " " + tx, x ,y);
+//                g2.drawString( ty + " " + tx, x ,y);
             }
         }
     }
 
 
     private void drawPlayer(Graphics2D g2, Player p, int ox, int oy){
-        int sx = (int) Math.round(p.pos.x - ox);
-        int sy = (int) Math.round(p.pos.y - oy);
+        int sx = (int) Math.round(p.pos.x - ox) - 16;
+        int sy = (int) Math.round(p.pos.y - oy) - 8;
 
         double scale = 1.5;
         int dw = (int) Math.round(p.frameW * scale);
@@ -118,7 +142,7 @@ public class GamePanel extends JPanel implements java.beans.PropertyChangeListen
 
             // soft shadow (optional)
             g2.setColor(new Color(0,0,0,50));
-            g2.fillOval(sx - 4, sy + dh - 4, dw + 8, 8);
+            g2.fillOval(sx - 4, sy + dh - 8, dw + 8, 8);
         } else {
             // Just in case: old rectangle if image missing
             g2.setColor(new Color(40, 80, 200));

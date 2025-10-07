@@ -245,11 +245,11 @@ public class DemoLevels {
 
         // ---------------------- Zig-zag Final Climb (solid steps) -------------------
         // Back-and-forth steps rising to the goal. Each step has a JUMP_BOOST.
-        for (int x = 74; x <= 77; x++) L.tiles[23][x] = Tile.SOLID.code; // Step A (left)
-        for (int x = 61; x <= 64; x++) L.tiles[26][x] = Tile.SOLID.code; // Step A (left)
-        for (int x = 61; x <= 64; x++) L.tiles[18][x] = Tile.SOLID.code; // Step B (right, higher)
-        for (int x = 71; x <= 74; x++) L.tiles[14][x] = Tile.SOLID.code; // Step C (left, higher)
-        for (int x = 75; x <= 78; x++) L.tiles[11][x] = Tile.SOLID.code; // Step D (right, near goal)
+        for (int x = 74; x <= 77; x++) L.tiles[23][x] = Tile.WOOD.code; // Step A (left)
+        for (int x = 61; x <= 64; x++) L.tiles[26][x] = Tile.WOOD.code; // Step A (left)
+        for (int x = 61; x <= 64; x++) L.tiles[18][x] = Tile.WOOD.code; // Step B (right, higher)
+        for (int x = 71; x <= 74; x++) L.tiles[14][x] = Tile.WOOD.code; // Step C (left, higher)
+        for (int x = 75; x <= 78; x++) L.tiles[11][x] = Tile.WOOD.code; // Step D (right, near goal)
 
         L.tiles[26][62] = Tile.JUMP_BOOST.code;  // Step A boost
         L.tiles[18][62] = Tile.JUMP_BOOST.code;  // Step B boost
@@ -257,6 +257,13 @@ public class DemoLevels {
 
         // ---------------------- Goal ----------------------
         L.tiles[10][77] = Tile.GOAL.code; // high goal after the final jump boost
+
+        // Leaf decoration
+        for(int y = 0; y <= 6; y++){
+            for(int x = 50; x < 80; x++){
+                L.tiles[y][x] = Tile.LEAF.code;
+            }
+        }
 
         return L;
     }
