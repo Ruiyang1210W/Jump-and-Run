@@ -11,7 +11,10 @@
 2. Open the project in IntelliJ IDEA (or Eclipse).
 3. Ensure the Project SDK is Java 17 or later.
 4. Run the main file: src/main/java/Main.java
-5. Mark src/main/resources as a resources root if it won't show assets. 
+5. Mark src/main/resources as a resources root if it won't show assets.
+
+## Demo Link: 
+https://www.youtube.com/watch?v=z4oH4OQiNWg
 
 
 ## Features Implemented
