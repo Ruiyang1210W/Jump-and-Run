@@ -60,6 +60,10 @@ public class Player {
         }
         onGround = false;
         coyoteTimer = 0;
+
+        //Play Jump sound
+        util.Sound.play("/assets/sounds/jump.wav");
+
     }
 
     private void movementCheck(Level level, double dt, double moveInput){

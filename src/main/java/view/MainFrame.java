@@ -7,6 +7,8 @@ import control.GameController;
 import control.InputHandler;
 import model.GameState;
 import model.Level;
+import util.Sound;
+
 
 public class MainFrame extends JFrame implements java.beans.PropertyChangeListener {
     private final CardLayout layout = new CardLayout();
@@ -50,6 +52,8 @@ public class MainFrame extends JFrame implements java.beans.PropertyChangeListen
         controller.start();
 
         layout.show(root, "game");
+        Sound.playLoop("/assets/sounds/bgm.wav");
+        Sound.setVolume(0.7f);
     }
 
     @Override

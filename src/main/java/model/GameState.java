@@ -47,6 +47,7 @@ public class GameState extends ObservableModel{
     private boolean checkScoreWin() {
         if (score >= Constants.GOAL_SCORE) {
             running = false;                // pause game
+            util.Sound.play("/assets/sounds/win.wav"); // win sound
             fireChange("gamewin", null, null);
             return true;
         }
@@ -84,6 +85,7 @@ public class GameState extends ObservableModel{
 
         // 3) Goal reached (time bonus included)
         if (atGoal()) {
+            util.Sound.play("/assets/sounds/goal.wav"); // reach nest tweet sound!
             int timeBonus = (int) Math.max(0, 5000 - timer * 100);
             score += 1000 + timeBonus;
             checkScoreWin();
@@ -105,6 +107,8 @@ public class GameState extends ObservableModel{
         if (!running) return;                // guard against double-calls
         lives = Math.max(0, lives - 1);      // decrement FIRST so HUD sees 0 immediately
         running = false;                     // stop loop
+
+        util.Sound.play("/assets/sounds/hurt.wav");
         fireChange("death", null, null);     // notify view after state is updated
     }
 
